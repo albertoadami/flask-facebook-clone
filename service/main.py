@@ -1,10 +1,11 @@
 from flask import Flask
+from .routes import health
+
 
 app = Flask(__name__)
 
-@app.route("/health")
-def health_check():
-    return '', 204
+# Register blueprints
+app.register_blueprint(health.bp)
 
 if __name__ == "__main__":
     app.run(debug=True)
