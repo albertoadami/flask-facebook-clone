@@ -1,2 +1,5 @@
 # Flask Framework
 Flask==3.0.3
+
+# Testing dependencies
+pytest==7.4.0
