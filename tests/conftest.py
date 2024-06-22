@@ -6,7 +6,7 @@ from app import create_app
 @pytest.fixture
 def app():
     application = create_app()
-    app.config.update(
+    application.config.update(
         {
             "TESTING": True,
             # add other testing configurations here if needed

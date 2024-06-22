@@ -1,5 +1,5 @@
 from flask import Flask
-from routes import health
+from app.routes import health
 
 def create_app():
     app = Flask(__name__)
