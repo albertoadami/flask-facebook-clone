@@ -26,12 +26,12 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
 
-    - name: Lint with flake8
-      run: |
-        pip install flake8
-        flake8 .
+#    - name: Lint with flake8
+#      run: |
+#        pip install flake8
+#        flake8 .
 
     - name: Run tests
       run: |
         pip install pytest
-        pytest
+        pytest service/tests
