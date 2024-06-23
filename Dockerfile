@@ -8,15 +8,24 @@ ENV PYTHONUNBUFFERED 1
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the dependencies files to the working directory
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    gcc \
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy dependency files to the working directory
 COPY requirements.txt requirements.txt
 
-# Install any needed packages specified in requirements.txt
+# Install dependencies
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 # Copy the rest of the application code to the working directory
 COPY . .
 
-# Run the application
+# Expose the port the app runs on
+EXPOSE 5000
+
+# Define the default command to run when starting the container
 CMD ["python", "run.py"]
