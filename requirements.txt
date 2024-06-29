@@ -1,5 +1,8 @@
 # Flask Framework
-Flask==3.0.3
+Flask==2.3.3
+
+# Gunicorn for running the Flask app in production
+gunicorn==22.0.0
 
 # Testing dependencies
 pytest==7.4.0
