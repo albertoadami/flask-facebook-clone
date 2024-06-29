@@ -4,6 +4,7 @@ FROM python:3.10-slim
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+ENV GUNICORN_LOGLEVEL=info
 
 # Set the working directory in the container
 WORKDIR /app
@@ -28,4 +29,5 @@ COPY . .
 EXPOSE 5000
 
 # Define the default command to run when starting the container
-CMD ["python", "run.py"]
+ENTRYPOINT ["gunicorn"]
+CMD ["-w", "4", "-b", "0.0.0.0:5000", "run:app"]
