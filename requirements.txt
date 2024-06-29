@@ -1,8 +1,14 @@
 # Flask Framework
 Flask==2.3.3
-
 # Gunicorn for running the Flask app in production
 gunicorn==22.0.0
+
+# SQLAlchemy ORM
+SQLAlchemy>=2.0,<3.0
+
+
+# yoyo-migrations for database schema migrations
+yoyo-migrations==8.2.0
 
 # Testing dependencies
 pytest==7.4.0
